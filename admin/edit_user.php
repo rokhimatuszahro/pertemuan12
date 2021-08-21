@@ -2,11 +2,10 @@
 
     //konek ke database
     include 'koneksi.php';
-    $id_buku = $_GET['id_buku'];
+    $id_user = $_GET['id_user'];
     //mengambil data buku pada database berdasarkan id
-    $sql = "SELECT * FROM tb_buku WHERE id_buku = $id_buku";
+    $sql = "SELECT * FROM tb_user WHERE id_user = $id_user";
     $data = mysqli_query($db, $sql);
-    $d_array = mysqli_fetch_array($data);
 ?>
 
 <div class="row justify-content-center">
@@ -14,9 +13,30 @@
         <div class="card bg-secondary border-0 mb-0">
             <div class="card-body px-lg-5 py-lg-5">
                 <div class="text-center text-muted mb-4">
-                    <small?>Ubah Data Buku</small>
+                    <small?>Ubah Data User</small>
                 </div>
-                <form role="form" action="index.php?page=perpus/buku/list_buku" method="POST">
+                <form role="form" action="index.php?page=admin/list_user" method="POST">
+                    <input type="hidden" class="form-control" name="id_user" value="<?= $id_user; ?>" >
+                    <div class="form-group mb-3">
+                        <div class="input-group input-group-merge input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-signature text-primary"></i>
+                                </span>
+                            </div>
+                            <input class="form-control" placeholder="Nama" type="text" name="nama" value="<?= $data['nama']; ?>">
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <div class="input-group input-group-merge input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-envelope-open-text text-primary"></i>
+                                </span>
+                            </div>
+                            <input class="form-control" placeholder="Email" type="email" name="email" value="<?= $data['email']; ?>">
+                        </div>
+                    </div>
                     <div class="form-group mb-3">
                         <div class="input-group input-group-merge input-group-alternative">
                             <div class="input-group-prepend">
@@ -24,54 +44,25 @@
                                     <i class="ni ni-key-25 text-primary"></i>
                                 </span>
                             </div>
-                            <input class="form-control" placeholder="ID Buku" type="text" name="id_buku" value="<?= $data['id_buku']; ?>">
-                        </div>
-                    </div>
-                    <div class="form-group mb-3">
-                        <div class="input-group input-group-merge input-group-alternative">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="ni ni-books text-primary"></i>
-                                </span>
-                            </div>
-                            <input class="form-control" placeholder="Judul Buku" type="text" name="jdl_buku" value="<?= $data['jdl_buku']; ?>">
-                        </div>
-                    </div>
-                    <div class="form-group mb-3">
-                        <div class="input-group input-group-merge input-group-alternative">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="ni ni-single-02 text-primary"></i>
-                                </span>
-                            </div>
-                            <input class="form-control" placeholder="Pengarang" type="text" name="pengarang" value="<?= $data['pengarang']; ?>">
-                        </div>
-                    </div>
-                    <div class="form-group mb-3">
-                        <div class="input-group input-group-merge input-group-alternative">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="ni ni-spaceship text-primary"></i>
-                                </span>
-                            </div>
-                            <input class="form-control" placeholder="Penerbit" type="text" name="penerbit" value="<?= $data['penerbit']; ?>">
+                            <input class="form-control" placeholder="Password" type="text" name="password" value="<?= $data['password']; ?>>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group input-group-merge input-group-alternative">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
-                                    <i class="fas fa-sort-numeric-down text-primary"></i>
+                                    <i class="fas fa-user-tag text-primary"></i>
                                 </span>
                             </div>
-                            <input class="form-control" placeholder="Tahun Cetak" type="text" name="thn_cetak" value="<?= $data['thn_cetak']; ?>">
+                            <input class="form-control" placeholder="Role" type="text" name="role" value="<?= $data['role']; ?>">
                         </div>
                     </div>
                     <div class="d-flex justify-content-between">
-                        <a href="index.php?page=perpus/buku/list_buku" class="btn btn-neutral my-4">
+                        <a href="index.php?page=admin/list_user" class="btn btn-neutral my-4">
                             Kembali
                         </a>
                         <button type="submit" class="btn btn-primary my-4" name="ubah" value="Ubah">
-                            Ubah
+                            Simpan
                         </button>
                     </div>
                 </form>
