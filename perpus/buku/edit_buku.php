@@ -6,7 +6,7 @@
     //mengambil data buku pada database berdasarkan id
     $sql = "SELECT * FROM tb_buku WHERE id_buku = $id_buku";
     $data = mysqli_query($db, $sql);
-    $d_array = mysqli_fetch_array($data);
+    $d_array = mysqli_fetch_assoc($data);
 ?>
 
 <div class="row justify-content-center">
@@ -24,7 +24,7 @@
                                     <i class="ni ni-key-25 text-primary"></i>
                                 </span>
                             </div>
-                            <input class="form-control" placeholder="ID Buku" type="text" name="id_buku" value="<?= $data['id_buku']; ?>">
+                            <input class="form-control" placeholder="ID Buku" type="text" name="id_buku" value="<?= $d_array['id_buku']; ?>">
                         </div>
                     </div>
                     <div class="form-group mb-3">
@@ -34,7 +34,7 @@
                                     <i class="ni ni-books text-primary"></i>
                                 </span>
                             </div>
-                            <input class="form-control" placeholder="Judul Buku" type="text" name="jdl_buku" value="<?= $data['jdl_buku']; ?>">
+                            <input class="form-control" placeholder="Judul Buku" type="text" name="jdl_buku" value="<?= $d_array['jdl_buku']; ?>">
                         </div>
                     </div>
                     <div class="form-group mb-3">
@@ -44,7 +44,7 @@
                                     <i class="ni ni-single-02 text-primary"></i>
                                 </span>
                             </div>
-                            <input class="form-control" placeholder="Pengarang" type="text" name="pengarang" value="<?= $data['pengarang']; ?>">
+                            <input class="form-control" placeholder="Pengarang" type="text" name="pengarang" value="<?= $d_array['pengarang']; ?>">
                         </div>
                     </div>
                     <div class="form-group mb-3">
@@ -53,7 +53,7 @@
                                 <span class="input-group-text"><i class="ni ni-spaceship text-primary"></i>
                                 </span>
                             </div>
-                            <input class="form-control" placeholder="Penerbit" type="text" name="penerbit" value="<?= $data['penerbit']; ?>">
+                            <input class="form-control" placeholder="Penerbit" type="text" name="penerbit" value="<?= $d_array['penerbit']; ?>">
                         </div>
                     </div>
                     <div class="form-group">
@@ -63,7 +63,7 @@
                                     <i class="fas fa-sort-numeric-down text-primary"></i>
                                 </span>
                             </div>
-                            <input class="form-control" placeholder="Tahun Cetak" type="text" name="thn_cetak" value="<?= $data['thn_cetak']; ?>">
+                            <input class="form-control" placeholder="Tahun Cetak" type="text" name="thn_cetak" value="<?= $d_array['thn_cetak']; ?>">
                         </div>
                     </div>
                     <div class="d-flex justify-content-between">
