@@ -6,7 +6,7 @@
     //mengambil data buku pada database berdasarkan id
     $sql = "SELECT * FROM tb_buku WHERE id_buku = $id_buku";
     $data = mysqli_query($db, $sql);
-    $d_array = mysqli_fetch_assoc($data);
+    $d_array = mysqli_fetch_row($data)[0];
 ?>
 
 <div class="row justify-content-center">
