@@ -18,7 +18,7 @@
                 <div class="text-center text-muted mb-4">
                     <small?>Tambah Data Buku</small>
                 </div>
-                <form role="form" action="index.php?page=perpus/buku/list_buku" method="POST">
+                <form role="form" action="index.php?page=perpus/buku/aksi_add_buku" method="POST">
                     <div class="form-group mb-3">
                         <div class="input-group input-group-merge input-group-alternative">
                             <div class="input-group-prepend">
@@ -26,7 +26,7 @@
                                     <i class="ni ni-key-25 text-primary"></i>
                                 </span>
                             </div>
-                            <input class="form-control" placeholder="ID Buku" type="text" name="id_buku">
+                            <input class="form-control" placeholder="ID Buku" type="text" name="id_buku" required>
                         </div>
                     </div>
                     <div class="form-group mb-3">
@@ -36,7 +36,7 @@
                                     <i class="ni ni-books text-primary"></i>
                                 </span>
                             </div>
-                            <input class="form-control" placeholder="Judul Buku" type="text" name="jdl_buku">
+                            <input class="form-control" placeholder="Judul Buku" type="text" name="jdl_buku" required>
                         </div>
                     </div>
                     <div class="form-group mb-3">
@@ -46,16 +46,17 @@
                                     <i class="ni ni-single-02 text-primary"></i>
                                 </span>
                             </div>
-                            <input class="form-control" placeholder="Pengarang" type="text" name="pengarang">
+                            <input class="form-control" placeholder="Pengarang" type="text" name="pengarang" required>
                         </div>
                     </div>
                     <div class="form-group mb-3">
                         <div class="input-group input-group-merge input-group-alternative">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="ni ni-spaceship text-primary"></i>
+                                <span class="input-group-text">
+                                    <i class="ni ni-spaceship text-primary"></i>
                                 </span>
                             </div>
-                            <input class="form-control" placeholder="Penerbit" type="text" name="penerbit">
+                            <input class="form-control" placeholder="Penerbit" type="text" name="penerbit" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -65,7 +66,7 @@
                                     <i class="fas fa-sort-numeric-down text-primary"></i>
                                 </span>
                             </div>
-                            <input class="form-control" placeholder="Tahun Cetak" type="text" name="thn_cetak">
+                            <input class="form-control" placeholder="Tahun Cetak" type="text" name="thn_cetak" required>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between">

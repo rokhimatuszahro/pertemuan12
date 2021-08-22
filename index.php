@@ -1,11 +1,11 @@
-<?php 
-//untuk menentukan isi konten yang ingin ditampilkan
-$halaktif = "perpus/dashboard";
-if (isset($_GET['page'])){
-  if ($_GET['page'] != ""){
-    $halaktif = $_GET['page'];
+<?php
+  //untuk menentukan isi konten yang ingin ditampilkan
+  $halaktif = "perpus/dashboard";
+  if (isset($_GET['page'])){
+    if ($_GET['page'] != ""){
+      $halaktif = $_GET['page'];
+    }
   }
-}
 
 //EOF
 ?>

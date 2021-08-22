@@ -1,80 +1,8 @@
 <?php 
-
-    //konek ke database
+    // koneksi database
     include 'koneksi.php';
-
-    //jika button simpan diklik
-    if (isset($_POST['simpan'])) {
-        //menangkap data yang diinputkan pada form tambah data buku
-        $nama = $_POST['nama'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $role = $_POST['role'];
-        
-        //query untuk menambah data buku ke dalam database
-        $sql = "INSERT INTO tb_user 
-        VALUES ('', '$nama', '$email', '$password', '$role')";
-
-        
-        if (mysqli_query($db, $sql)) {
-            echo "<script type='text/javascript'>
-                alert('Data Berhasil Disimpan!');
-                location.replace('index.php?page=admin/list_user');
-                </script>";
-        } else {
-            echo "<script type='text/javascript'>
-                alert('Data Gagal Dimasukan!');
-                location.replace(index.php?page=admin/add_user');
-                </script>";
-        }
-        
-    }
-
-    //jika button ubah diklik
-    if (isset($_POST['ubah'])) {
-        //menangkap data yang terdapat pada form
-        $id_user = $_POST['id_user'];
-        $nama = $_POST['nama'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $role = $_POST['role'];
-
-        //query untuk mengubah data buku
-        $sql = "UPDATE 'tb_user' SET 'id_user' = $id_user', 'nama' = '$nama', 'email' = '$email', 'password' = '$password', 'role' = '$role' WHERE id_user = $id_user";
-
-        
-        if (mysqli_query($db, $sql)) {
-            echo "<script type='text/javascript'>
-                alert('Data Berhasil Diubah!');
-                location.replace('index.php?page=admin/list_user');
-                </script>";
-        } else {
-            echo "<script type='text/javascript'>
-                alert('Data Gagal Dimasukan!');
-                location.replace('index.php?page=admin/edit_user');
-                </script>";
-        }
-    }
-
-    //jika menghapus data
-    if (isset($_GET['taks'])) {
-        if ($_GET['taks'] == "delete") {
-            $sql = "DELETE FROM tb_user WHERE id_user = ". $_GET['id_user'];
-            $data = mysqli_query($db, $sql);
-
-            if ($data) {
-                echo "<script type='text/javascript'>
-                    alert('Data Berhasil Dihapus!');
-                    location.replace('index.php?page=admin/list_user');
-                    </script>";
-            } else {
-                echo "<script type='text/javascript'>
-                    alert('Data Gagal Dimasukan!');
-                    location.replace(list_buku.php');
-                    </script>";
-            }
-        }
-    }
+    // mengambil data buku pada database
+    $data = mysqli_query($db, "SELECT * FROM tb_user ORDER BY id_user DESC");
 ?>
 
 
@@ -104,8 +32,6 @@
             </thead>
             <tbody class="list">
                 <?php 
-                    //mengambil data buku pada database
-                    $data = mysqli_query($db, "SELECT * FROM tb_user ORDER BY id_user DESC");
                     $nomor = 1;
                     foreach ($data as $d) :
                 ?>
@@ -129,16 +55,12 @@
                         <?= $d['role']; ?>
                     </td>
                     <td>
-                    <?php 
-                        echo "<a href='index.php?page=admin/edit_user&id_user=".$d['id_user']."'>
+                        <a href="index.php?page=admin/edit_user&id_user=<?= $d['id_user']; ?>">
                             <i class='far fa-edit text-warning'></i>
-                        </a>" 
-                    ?>
-                    <?php 
-                        echo "<a href='index.php?page=admin/list_user&id_user=".$d['id_user']."&task=delete'>
+                        </a>
+                        <a href="index.php?page=admin/aksi_hapus_user&id_user=<?= $d['id_user']; ?>" onclick="return confirm ('Apakah Anda yakin ingin menghapus data?')">
                             <i class='fas fa-trash-alt text-danger'></i>
-                        </a>" 
-                    ?>
+                        </a>
                     </td>
                 </tr>
                 <?php 

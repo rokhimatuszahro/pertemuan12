@@ -5,7 +5,7 @@
                 <div class="text-center text-muted mb-4">
                     <small?>Tambah Data User</small>
                 </div>
-                <form role="form" action="index.php?page=admin/list_user" method="POST">
+                <form role="form" action="index.php?page=admin/aksi_add_user" method="POST">
                     <div class="form-group mb-3">
                         <div class="input-group input-group-merge input-group-alternative">
                             <div class="input-group-prepend">
@@ -13,27 +13,27 @@
                                     <i class="fas fa-signature text-primary"></i>
                                 </span>
                             </div>
-                            <input class="form-control" placeholder="Nama" type="text" name="nama">
+                            <input class="form-control" placeholder="Nama" type="text" name="nama" required>
                         </div>
                     </div>
                     <div class="form-group mb-3">
                         <div class="input-group input-group-merge input-group-alternative">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
-                                    <i class="fas fa-envelope-open-text text-primary"></i>
+                                    <i class="ni ni-email-83 text-primary"></i>
                                 </span>
                             </div>
-                            <input class="form-control" placeholder="Email" type="email" name="email">
+                            <input class="form-control" placeholder="Email" type="email" name="email" required>
                         </div>
                     </div>
                     <div class="form-group mb-3">
                         <div class="input-group input-group-merge input-group-alternative">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
-                                    <i class="ni ni-key-25 text-primary"></i>
+                                    <i class="ni ni-lock-circle-open text-primary"></i>
                                 </span>
                             </div>
-                            <input class="form-control" placeholder="Password" type="text" name="password">
+                            <input class="form-control" placeholder="Password" type="text" name="password" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -43,15 +43,15 @@
                                     <i class="fas fa-user-tag text-primary"></i>
                                 </span>
                             </div>
-                            <input class="form-control" placeholder="Role" type="text" name="role">
+                            <input class="form-control" placeholder="Role" type="text" name="role" required>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between">
                         <a href="index.php?page=admin/list_user" class="btn btn-neutral my-4">
                             Kembali
                         </a>
-                        <button type="submit" class="btn btn-primary my-4" name="simpan" value="Simpan">
-                            Simpan
+                        <button type="submit" class="btn btn-primary my-4" name="tambah" value="Tambah">
+                            Tambah
                         </button>
                     </div>
                 </form>

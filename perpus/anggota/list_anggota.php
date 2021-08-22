@@ -1,3 +1,11 @@
+<?php 
+    // koneksi database
+    include 'koneksi.php';
+    //mengambil data angggota pada database
+    $data = mysqli_query($db, "SELECT * FROM tb_anggota ORDER BY id_anggota DESC");
+
+?>
+
 <div class="row">
     <div class="col">
         <div class="card">
@@ -11,44 +19,54 @@
         <!-- Light table -->
         <div class="table-responsive">
             <table class="table align-items-center table-flush">
-            <thead class="thead-light">
-                <tr>
-                <th scope="col" class="sort" data-sort="nomor">Nomor</th>
-                <th scope="col" class="sort" data-sort="id_anggota">ID Anggota</th>
-                <th scope="col" class="sort" data-sort="nama">Nama</th>
-                <th scope="col">Foto</th>
-                <th scope="col" class="sort" data-sort="jenkel">Jenis Kelamin</th>
-                <th scope="col" class="sort" data-sort="alamat">Alamat</th>
-                <th scope="col">Aksi</th>
-                </tr>
-            </thead>
-            <tbody class="list">
-                <tr>
-                    <th scope="row">
-                    </th>
-                    <td class="budget">
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td class="text-right">
-                    </td>
-                    <td>
-                        <a href="">
-                            <i class="fa fa-print text-primary"></i>
-                        </a>
-                        <a href="">
-                            <i class="far fa-edit text-warning"></i>
-                        </a>
-                        <a href="">
-                            <i class="fas fa-trash-alt text-danger"></i>
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
+                <thead class="thead-light">
+                    <tr>
+                    <th scope="col" class="sort" data-sort="nomor">Nomor</th>
+                    <th scope="col" class="sort" data-sort="id_anggota">ID Anggota</th>
+                    <th scope="col" class="sort" data-sort="nama">Nama</th>
+                    <th scope="col" class="sort" data-sort="jenkel">Jenis Kelamin</th>
+                    <th scope="col" class="sort" data-sort="alamat">Alamat</th>
+                    <th scope="col" class="sort" data-sort="alamat">Status</th>
+                    <th scope="col">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody class="list">
+                    <?php 
+                        $nomor = 1;
+                        foreach ($data as $d) :
+                    ?>
+                    <tr>
+                        <th scope="row" class="text-center">
+                            <?= $nomor++; ?>
+                        </th>
+                        <td class="budget">
+                            <?= $d['id_anggota']; ?>
+                        </td>
+                        <td>
+                            <?= $d['nama']; ?>
+                        </td>
+                        <td>
+                            <?= $d['jenkel']; ?>
+                        </td>
+                        <td>
+                            <?= $d['alamat']; ?>
+                        </td>
+                        <td class="text-center">
+                            <?= $d['status']; ?>
+                        </td>
+                        <td>
+                            <a href="index.php?page=perpus/anggota/edit_anggota&id_anggota=<?= $d['id_anggota']; ?>">
+                                <i class='far fa-edit text-warning'></i>
+                            </a>
+                            <a href="index.php?page=perpus/anggota/aksi_hapus_anggota&id_anggota=<?= $d['id_anggota']; ?>" onclick="return confirm ('Apakah Anda yakin ingin menghapus data?')">
+                                <i class='fas fa-trash-alt text-danger'></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <?php 
+                        endforeach;
+                    ?>
+                </tbody>
             </table>
         </div>
         <!-- Card footer -->
