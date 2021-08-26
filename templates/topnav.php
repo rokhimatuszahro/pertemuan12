@@ -22,10 +22,10 @@
             <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="media align-items-center">
                 <span class="avatar avatar-sm rounded-circle">
-                <img alt="Image placeholder" src="assets/img/theme/team-4.jpg">
+                <img alt="Image placeholder" src="https://ui-avatars.com/api/?background=bacfff&color=ffffff&bold=true&uppercase=false&name=<?= auth::user('nama'); ?>">
                 </span>
                 <div class="media-body  ml-2  d-none d-lg-block">
-                <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
+                <span class="mb-0 text-sm  font-weight-bold"><?= auth::user('nama'); ?></span>
                 </div>
             </div>
             </a>
@@ -34,7 +34,7 @@
                 <h6 class="text-overflow m-0">Welcome!</h6>
             </div>
             <div class="dropdown-divider"></div>
-            <a href="#!" class="dropdown-item">
+            <a href="<?= base_url('auth/logout.php') ?>" class="dropdown-item">
                 <i class="ni ni-user-run"></i>
                 <span>Logout</span>
             </a>

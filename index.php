@@ -8,6 +8,13 @@
   }
 
 //EOF
+
+  // Start session
+  session_start();
+  // Config auth
+  require './config/auth.php';
+  // cek apakah yg berkunjung adalah tamu (jika iya kembalikan ke login)
+  auth::guest();
 ?>
 
 <!DOCTYPE html>

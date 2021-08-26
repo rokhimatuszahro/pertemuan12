@@ -22,6 +22,12 @@
         </a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="index.php?page=siswabaru/list_siswa">
+        <i class="fa fa-users text-primary"></i>
+        <span class="nav-link-text">Siswa</span>
+        </a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="index.php?page=perpus/buku/list_buku">
         <i class="ni ni-books text-primary"></i>
         <span class="nav-link-text">Buku</span>

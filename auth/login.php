@@ -1,3 +1,11 @@
+<?php 
+// start session
+session_start();
+require '../config/auth.php';
+// cek apakah sudah login (jika iya kembalikan ke dashboard)
+auth::hasLogin();
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
